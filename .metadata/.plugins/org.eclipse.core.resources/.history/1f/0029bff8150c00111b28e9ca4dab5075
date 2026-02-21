@@ -1,0 +1,11 @@
+package com.example.demo.entity;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class Teacher {
+	public Teacher() {
+		// TODO Auto-generated constructor stub
+		System.out.println("Teacher created");
+	}
+}
