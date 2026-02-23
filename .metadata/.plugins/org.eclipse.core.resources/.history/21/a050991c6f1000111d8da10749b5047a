@@ -10,7 +10,6 @@ import com.example.demo.entity.Teacher;
 import com.example.demo.repository.TeacherRepository;
 
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
@@ -45,12 +44,6 @@ public class TeacherController {
 		return repository.save(teacher);
 	}
 	
-	@PutMapping("/update")
-	public Teacher update(@RequestBody Teacher teacher)
-	{
-		repository.findById(teacher.getId()).orElseThrow(()-> new NullPointerException());
-		return repository.save(teacher);
-		
-	}
+	
 	
 }
