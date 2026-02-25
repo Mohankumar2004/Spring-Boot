@@ -77,28 +77,5 @@ public class TeacherController {
 		teacher.setName(name);
 		return repository.save(teacher);
 	}
-	
-	@GetMapping("/customsort")
-	public List<Teacher> customSort(@RequestBody Teacher teacher)
-	{
-		org.springframework.data.domain.Example<Teacher> teac = org.springframework.data.domain.Example.of(teacher);
-		return repository.findAll(teac);
-		
-	}
-	
-	@DeleteMapping("/deletebyid")
-	public void deleteById(@RequestParam(required = false) int id)
-	//public void deleteById(@RequestParam(defaultValue = "Guest") String name)
-	{
-		repository.findById(id).orElseThrow(()-> new NullPointerException("e"));
-		System.out.println(id);
-		repository.deleteById(id);
-		
-	}
-	
-	@GetMapping("/del")
-	public void del() {
-		
-	}
 
 }
