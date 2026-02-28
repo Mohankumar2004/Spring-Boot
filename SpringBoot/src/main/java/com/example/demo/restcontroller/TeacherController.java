@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.entity.Teacher;
 import com.example.demo.repository.TeacherRepository;
 
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -78,7 +79,7 @@ public class TeacherController {
 		return repository.save(teacher);
 	}
 	
-	@GetMapping("/customsort")
+	@PostMapping("/customsort")
 	public List<Teacher> customSort(@RequestBody Teacher teacher)
 	{
 		org.springframework.data.domain.Example<Teacher> teac = org.springframework.data.domain.Example.of(teacher);
@@ -96,9 +97,11 @@ public class TeacherController {
 		
 	}
 	
-	@GetMapping("/del")
-	public void del() {
-		
+	@GetMapping("/findByIdAndName")
+	public List<Teacher> findByIdAndName(@RequestParam Integer id, @RequestParam String name)
+	{
+		return repository.findByIdAndName(id,name);
 	}
-
+	
+	
 }
